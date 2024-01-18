@@ -1,1 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
+
+:root {
+--shortwidth: 42vw;
+--playbtndim: 8vh;
+}
+
+body {
+overflow-x: hidden;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+font-family: Jost;
+}
+
+.flex {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.main {
+min-height: 92vh;
+width: 100vw;
+}
+
+h1, h2 {
+text-align: center;
+padding: 35px 0;
+}
+
+.subcount {
+height: 32vh;
+width: 32vh;
+box-shadow: 0 0 15px lightgrey;
+justify-content: center;
+}
+
+.subcount a {
+text-decoration: none;
+background-color: red;
+color: white;
+padding: 5px;
+border-radius: 8px;
+margin-top: 10px;
+}
+
+.shortsdiv {
+width: 100vw;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+gap: 10px;
+}
+
+.shortsdiv > div {
+width: var(--shortwidth);
+height: calc((560/315) * var(--shortwidth));
+max-height: 560px;
+max-width: 315px;
+border-radius: 20px;
+background-size: cover;
+background-position: center;
+justify-content: center;
+background-color: black;
+position: relative;
+}
+
+.footer {
+width: 100vw;
+height: 4vh;
+margin-top: 4vh;
+font-size: 14px;
+background-color: #101010;
+color: white;
+justify-content: center;
+}
+
+.morevids {
+background-color: #101010;
+text-transform: uppercase;
+color: white;
+padding: 8px 25px;
+margin: 35px 0;
+}
+
+.playbtn {
+height: var(--playbtndim);
+width: var(--playbtndim);
+background-color: red;
+border-radius: 50%;
+justify-content: center;
+}
+
+.playbtn > div {
+width: 60%;
+height: 60%;
+background-color: white;
+clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.shortView {
+position: fixed;
+height: 100vh;
+width: 100vw;
+background-color: rgba(0, 0, 0, 0.8);
+justify-content: center;
+display: none;
+}
+
+.shortview iframe {
+width: calc(2 * var(--shortwidth));
+height: calc(2 * (560/315) * var(--shortwidth));
+border-radius: 30px;
+}
+
+.shortview span {
+color: white;
+position: absolute;
+opacity: 0.8;
+font-size: 50px;
+top: 20px;
+left: 10px;
+}
+
+.shortsdiv > div:active {
+animation: short-in 0.2s;
+}
+
+@keyframes short-in {
+to {
+scale: 0.5;
+}
+}
+
+@keyframes short-out {
+from {
+scale: 0.2;
+}
+to {
+scale: 1;
+}
+}
 
