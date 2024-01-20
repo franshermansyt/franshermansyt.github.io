@@ -2,7 +2,8 @@ const db = {
 addedShorts: 0
 }
 
-fetch("https://invidious.fdn.fr/api/v1/playlists/PLFplM-inruF5m6OV7qCTJu5pFOekoR5Im?fields=videos")
+const url = 'https://corsproxy.org/?' + encodeURIComponent('https://fransdata.iceiy.com/ytdata.php');
+fetch(url)
 .then((response) => {
 return response.json();
 })
