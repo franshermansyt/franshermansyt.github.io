@@ -1,77 +1,163 @@
 <head>
-<title>Welcome | Frans Hermans</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 * {
 box-sizing: border-box;
 margin: 0;
+font-family: DM Sans;
+overflow: hidden;
 }
 
-p, a {
-font-family: Inter;
-font-size: 20px;
-line-height: 25px;
-max-width: 60vw;
-text-align: center;
+.flex {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+flex-direction: column;
+}
+
+h1, p {
+padding: 10px 0;
 }
 
 .content {
 height: 100vh;
-width: 100vw;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-flex-wrap: wrap;
+widh: 100vw;
+display: grid;
+grid-template-rows: 1.5fr 3fr 1.5fr;
 }
 
-img {
-height: 25vh;
-width: 25vh;
-object-fit: cover;
-animation: logoo 2s infinite;
-z-index: -1;
+.content > div {
 }
 
-a {
+.menu {
+background-color: 64DB4F;
+}
+
+.vid iframe {
+height: 100%;
+width: 100%;
+}
+
+.box {
+padding: 20px 20vw;
+text-align: center;
+}
+
+.box > img {
+height: 10vh;
+width: 30vh;
+object-fit: contain;
+}
+
+.menu-items {
+width: 50%;
+height: 100%;
+gap: 5px;
+}
+
+.menu-items > a {
 text-decoration: none;
-border: 1px solid black;
-padding: 2px 10px;
-border-radius: 10px;
-color: black;
-margin-top: 50px;
-background-color: whitesmoke;
-font-size: 17px;
-box-shadow: 0 0 10px lightgrey;
+color: white;
+background-color: rgba(255,255,255,0.2);
+width: 100%;
+text-align: center;
+padding: 10px;
+border-radius: 20px;
+transition: 0.2s;
 }
 
-@keyframes logoo {
-from {
-transform: rotate(0deg);
+.menu-items > a:hover, .menu-items > a:active {
+color: black;
+background-color: rgba(1,1,1,0.2);
 }
-to {
-transform: rotate(360deg);
+
+.pageInvisible {
+display: none;
 }
+
+.yt-btn {
+background-color: red;
+color: white;
+text-decoration: none;
+padding: 10px 25px;
+box-shadow: 0 0 10px black;
+border: 2px solid white;
+border-radius: 15px;
+margin-top: 15px;
+}
+
+audio {
+max-width: 100%;
 }
 
 </style>
 
-
 <div class="content">
+
+<div class="menu flex">
+<div class="menu-items flex">
+<a href="#/">Welkom</a>
+<a href="#/">My content</a>
+<a href="#/">My socials</a>
+</div>
+</div>
+
+<div class="box flex page">
+<h1>Welcome</h1>
+<p>Welkom op de site van Frans Hermans. Deze website is nog in ontwikkeling. Ik hoop je binnenkort weer terug te zien!</p>
 <img src="logo.png">
-<p><b>Under construction</b> - Frans is busy decorating this site.</p>
+</div>
+
+<div class="box flex page">
+<h1>My content</h1>
+<p>Frans maakt geweldige video's voor iedereen. Als je ze leuk vindt, moet je gewoon even abonneren.</p>
 <audio controls>
 <source src="music.mp3" type="audio/mpeg"></source>
 </audio>
-<a href="https://www.youtube.com/@FransHermans-cj2ud">Visit my channel</a>
+</div>
+
+<div class="box flex page">
+<h1>My socials</h1>
+<p>Ben je nog niet geabonneerd op Frans' YouTube-kanaal? Dan wordt het hoog tijd! Klik op de knop hieronder om snel te abonneren.</p>
+<a href="https://youtube.com/@franshermans-cj2ud" class="yt-btn">my YouTube channel</a>
 </div>
 
 
+<div class="vid">
+<iframe src="https://www.youtube.com/embed/DFpc_qKsvfg?si=WmsYqXm4XzO5Wqsn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
+</div>
+
+
+<script>
+
+const pages = document.querySelectorAll(".page");
+
+const menuItems = document.querySelector(".menu-items");
+const links = menuItems.querySelectorAll("a");
+
+for (let i = 0; i < links.length; i++) {
+links[i].addEventListener("click", () => {
+goTo(i);
+});
+}
+
+function goTo(x) {
+for (let i = 0; i < pages.length; i++) {
+pages[i].classList.add("pageInvisible");
+pages[x].classList.remove("pageInvisible");
+}
+}
+
+goTo(2);
+
+</script>
 
 
 
