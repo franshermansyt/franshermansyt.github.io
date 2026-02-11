@@ -1,0 +1,36 @@
+<script>
+
+navigator.mediaDevices.getUserMedia({audio: true})
+.then((stream) => {
+
+const ctx = new AudioContext();
+
+const source = ctx.createMediaStreamSource(stream);
+
+const delay = ctx.createDelay();
+delay.delayTime.value = 0.5;
+
+const feedback = ctx.createGain();
+feedback.gain.value = 0.5;
+delay.connect(feedback);
+feedback.connect(delay);
+
+source.connect(ctx.destination);
+source.connect(delay);
+delay.connect(ctx.destination);
+
+})
+.catch((err) => {
+alert(err);
+});
+
+
+if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+  console.log("getUserMedia wordt niet ondersteund");
+}
+
+
+
+
+
+</script>
