@@ -82,14 +82,6 @@ text-decoration: none;
 margin: 2vh 0;
 }
 
-.radiobtn {
-background-color: yellow;
-font-size: 20px;
-outline: 2px solid black;
-border: 2px solid white;
-margin-bottom: 3vh;
-}
-
 </style>
 
 <div class="top">
@@ -109,7 +101,6 @@ margin-bottom: 3vh;
 <a href="https://www.youtube.com/@FransHermans-cj2ud" class="btn" style="background-color: red; color: white;">Naar YouTube</a>
 </div>
 
-<!--<div class="radiobtn"><b>Zet RadioFRANS op</b> <span style="font-size: 14px;">(radio aanzetten)</span></div>-->
 
 </div>
 
@@ -117,16 +108,16 @@ margin-bottom: 3vh;
 <script>
 
 const toeter = new Audio("toeter.m4a");
-const muziekje = new Audio("muziekjefrans.mp3");
+const zingen = new Audio("frans.mp3");
 
 const banner = document.querySelector(".banner");
 banner.addEventListener("click", () => {
 toeter.play();
 });
 
-const radiobtn = document.querySelector(".radiobtn");
-radiobtn.addEventListener("click", () => {
-muziekje.play();
+const titel = document.querySelector(".top");
+titel.addEventListener("click", () => {
+zingen.play();
 });
 
 
