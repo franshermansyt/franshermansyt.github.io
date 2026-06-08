@@ -39,11 +39,11 @@ width: 30px;
 }
 
 .banner {
-background-image: url("fransbgafbeelding.jpeg");
+background-image: url("fransbg.jpeg");
 height: 40vh;
 width: 100vw;
 background-size: cover;
-border-radius: 40px 40px 10px 10px;
+border-radius: 40px 40px 0 0;
 }
 
 .contentbox {
@@ -75,14 +75,19 @@ transform: rotate(-3deg);
 }
 
 .btn {
-padding: 5px 10px;
+padding: 5px 0;
 border-radius: 10px;
 font-size: 17px;
 text-decoration: none;
 margin: 2vh 0;
 }
 
-
+.radiobtn {
+background-color: yellow;
+font-size: 20px;
+outline: 2px solid black;
+border: 2px solid white;
+}
 
 </style>
 
@@ -99,11 +104,32 @@ margin: 2vh 0;
 <div class="info">
 <p class="title">Wie de f*ck is Frans?!</p>
 <p style="font-size: 20px;">Frans is een doodnormale man die echt wel weet wat hij wil.</p>
+<p style="font-size: 10px; color: grey;">Tip: klik op de scooter, dan toetert Frans!</p>
 <a href="https://www.youtube.com/@FransHermans-cj2ud" class="btn" style="background-color: red; color: white;">Naar YouTube</a>
 </div>
 
+<div class="radiobtn"><b>Zet RadioFRANS op</b> <span style="font-size: 14px;">(radio aanzetten)</span></div>
+
 </div>
 
+
+<script>
+
+const toeter = new Audio("toeter.m4a");
+const muziekje = new Audio("muziekjefrans.mp3");
+
+const banner = document.querySelector(".banner");
+banner.addEventListener("click", () => {
+toeter.play();
+});
+
+const radiobtn = document.querySelector(".radiobtn");
+radiobtn.addEventListener("click", () => {
+muziekje.play();
+});
+
+
+</script>
 
 
 
