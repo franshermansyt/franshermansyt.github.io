@@ -82,7 +82,47 @@ text-decoration: none;
 margin: 2vh 0;
 }
 
+.warning {
+height: 100vh;
+width: 100vw;
+background-color: rgba(0,0,0,0.5);
+position: fixed;
+z-index: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+display: none;
+}
+
+.warning div {
+background-color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 80vw;
+height: 50vh;
+font-size: 30px;
+text-align: center;
+gap: 20px;
+}
+
+.dd {
+color: white;
+background-color: darkblue;
+border-radius: 20px;
+padding: 10px;
+}
+
 </style>
+
+<div class="warning">
+<div>
+<b>Attentie!</b>
+<p class="msgp">Frans Hermans is de beste YouTube'er ter wereld.</p>
+<p class="dd">Accepteren</p><p class="dd">Niet accepteren</p>
+</div>
+</div>
 
 <div class="top">
 <div><img src="logo.jpg"><p style="font-size: 20px;">Frans Hermans</p></div>
@@ -108,17 +148,45 @@ margin: 2vh 0;
 <script>
 
 const toeter = new Audio("toeter.m4a");
-const zingen = new Audio("frans.mp3");
 
 const banner = document.querySelector(".banner");
 banner.addEventListener("click", () => {
 toeter.play();
 });
 
-const titel = document.querySelector(".top");
-titel.addEventListener("click", () => {
-zingen.play();
+function getRandomIntInclusive(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+}
+
+const berichten = [
+"Frans Hermans is de beste YouTube'er ter wereld.",
+"Vanaf 2027 staat Frans in Showhol",
+"A.I. is echt.",
+"Ik ben ooit bij het Fransival geweest.",
+"Ik haat deze meldingen",
+"Frans wil iets wat hij nog niet heeft.",
+"Frans is de beste!",
+"Frans is de rijkste!"
+];
+
+const warning = document.querySelector(".warning");
+const msgp = document.querySelector(".msgp");
+
+function opnieuw(x) {
+setTimeout(() => {
+msgp.textContent = berichten[getRandomIntInclusive(0, berichten.length - 1)];
+warning.style.display = "flex";
+}, x);
+}
+
+warning.addEventListener("click", () => {
+warning.style.display = "none";
+opnieuw(getRandomIntInclusive(2, 14) * 1000);
 });
+
+opnieuw(1000);
 
 
 </script>
