@@ -1,0 +1,162 @@
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100&icon_names=close,menu" rel="stylesheet" />
+
+<script src=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js "></script>
+<link href=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css " rel="stylesheet">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+box-sizing: border-box;
+margin: 0;
+font-family: Outfit;
+}
+
+.flex {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+flex-wrap: wrap;
+}
+
+.mn {
+position: fixed;
+z-index: 1;
+}
+
+.mn-vs .mnb {
+display: flex;
+}
+
+.mn-vs .mnt-icon::before {
+content: "close";
+}
+
+.mnt {
+width: 100vw;
+height: 15vh;
+flex-direction: row;
+gap: 15px;
+padding: 0 25px;
+}
+
+.mnt-icon {
+font-size: 40px;
+margin-left: auto;
+}
+
+.mnt-icon::before {
+content: "menu";
+}
+
+.mnb {
+width: 100vw;
+height: 85vh;
+border: 9px solid yellow;
+display: none;
+}
+
+.mnt-logo {
+height: 4vh;
+width: 4vh;
+object-fit: cover;
+}
+
+.mnt-name {
+font-size: 22px;
+font-weight: 200;
+}
+
+.banner-o {
+height: 100vw;
+width: 100vw;
+overflow: hidden;
+}
+
+.banner-i {
+width: 100vw;
+height: 100vw;
+background-size: cover;
+}
+
+.banner-i p {
+height: 100%;
+width: 100%;
+background-color: rgba(255,255,255,0.9);
+font-size: 50px;
+text-align: center;
+mix-blend-mode: screen;
+}
+
+.reg {
+padding: 30px 20px;
+}
+
+.reg-t {
+font-weight: 400;
+font-size: 32px;
+padding-bottom: 10px;
+}
+
+.reg-n {
+font-weight: 200;
+font-size: 19px;
+}
+
+</style>
+
+<div class="mn flex">
+<div class="mnt flex">
+<img src="logo.jpg" class="mnt-logo">
+<p class="mnt-name">Frans Hermans</p>
+<span class="material-symbols-outlined mnt-icon"></span>
+</div>
+<div class="mnb flex"></div>
+</div>
+
+<div style="height: 15vh;"></div>
+
+<section class="splide banner-o">
+<div class="splide__track">
+<ul class="splide__list">
+<li class="splide__slide"><div class="banner-i" style="background-image: url('bg1.jpg')"><p class="flex">Dit is de beste YouTuber ter wereld</p></div></li>
+<li class="splide__slide"><div class="banner-i" style="background-image: url('bg2.jpg')"><p class="flex">Dit is de beste YouTuber ter wereld</p></div></li>
+<li class="splide__slide"><div class="banner-i" style="background-image: url('bg3.jpg')"><p class="flex">Dit is de beste YouTuber ter wereld</p></div></li>
+</ul>
+</div>
+</section>
+
+<div class="reg flex">
+<p class="reg-t">Welkom!</p>
+<p class="reg-n">Dit is gewone tekst.</p>
+</div>
+
+<script>
+const mn = document.querySelector(".mn");
+const mntIcon = document.querySelector(".mnt-icon");
+mntIcon.addEventListener("click", () => {
+mn.classList.toggle("mn-vs");
+});
+
+new Splide(".splide", {
+type: "loop",
+arrows: false,
+pagination: false,
+autoplay: true,
+interval: 1000,
+drag: false
+}).mount();
+
+</script>
+
+
+
+
+
+
+
+
+
+
