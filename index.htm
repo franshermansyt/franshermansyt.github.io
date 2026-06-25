@@ -24,6 +24,7 @@ flex-wrap: wrap;
 .mn {
 position: fixed;
 z-index: 1;
+background-color: white;
 }
 
 .mn-vs .mnb {
@@ -85,13 +86,15 @@ background-size: cover;
 height: 100%;
 width: 100%;
 background-color: rgba(255,255,255,0.9);
-font-size: 50px;
+font-size: 60px;
 text-align: center;
 mix-blend-mode: screen;
+padding: 0 20px;
 }
 
 .reg {
 padding: 30px 20px;
+text-align: center;
 }
 
 .reg-t {
@@ -121,17 +124,19 @@ font-size: 19px;
 <section class="splide banner-o">
 <div class="splide__track">
 <ul class="splide__list">
-<li class="splide__slide"><div class="banner-i" style="background-image: url('bg1.jpg')"><p class="flex">Dit is de beste YouTuber ter wereld</p></div></li>
-<li class="splide__slide"><div class="banner-i" style="background-image: url('bg2.jpg')"><p class="flex">Dit is de beste YouTuber ter wereld</p></div></li>
-<li class="splide__slide"><div class="banner-i" style="background-image: url('bg3.jpg')"><p class="flex">Dit is de beste YouTuber ter wereld</p></div></li>
+<li class="splide__slide"><div class="banner-i" style="background-image: url('bg1.jpg')"><p class="flex">Altijd de grappigste video's</p></div></li>
+<li class="splide__slide"><div class="banner-i" style="background-image: url('bg2.jpg')"><p class="flex">Nooit meer teleurstellingen</p></div></li>
+<li class="splide__slide"><div class="banner-i" style="background-image: url('bg3.jpg')"><p class="flex">Je vergaat van het lachen!</p></div></li>
 </ul>
 </div>
 </section>
 
 <div class="reg flex">
 <p class="reg-t">Welkom!</p>
-<p class="reg-n">Dit is gewone tekst.</p>
+<p class="reg-n">Frans Hermans is zo ongeveer de leukste YouTuber die er is. Of je nu van a.i. of van zingen houdt, je bent hier absoluut aan het juiste adres!</p>
 </div>
+
+<div style="height: 200vh;"></div>
 
 <script>
 const mn = document.querySelector(".mn");
@@ -144,7 +149,7 @@ new Splide(".splide", {
 type: "loop",
 arrows: false,
 pagination: false,
-autoplay: true,
+autoplay: false,
 interval: 1000,
 drag: false
 }).mount();
